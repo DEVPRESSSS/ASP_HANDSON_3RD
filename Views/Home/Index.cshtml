@@ -1,13 +1,13 @@
-﻿@model Aircraft
+﻿@model Ship
 
 @{
     ViewData["Title"] = "Home Page";
 }
 
-<form asp-action="Aircraft" id="aircraftForm">
-    <label asp-for="Number"></label>
-    <input asp-for="Number" id="inputField" />
-    <span asp-validation-for="Number"></span>
+<form asp-action="Letter">
+    <label asp-for="letter"></label>
+    <input asp-for="letter" id="inputField" />
+    <span asp-validation-for="letter"></span>
 </form>
 
 @if(ViewBag.Message != null)

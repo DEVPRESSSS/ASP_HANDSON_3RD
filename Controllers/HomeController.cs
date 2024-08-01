@@ -19,25 +19,34 @@ namespace ASP_HANDS_ON_3RDYEAR.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult AirCraft(Aircraft model)
+        public IActionResult Letter(Ship model)
         {
             if(ModelState.IsValid)
             {
-                if(model.Number < 500)
+                model.letter = model.letter.ToLower();
+               
+                if(model.letter == "b")
                 {
-                    ViewBag.Message = "Bird";
-                    ViewBag.Aircraft = model;
-                }
-                else if((model.Number >= 500) && (model.Number <= 1100))
-                {
-                    ViewBag.Message = "Military";
-                    ViewBag.Aircraft = model;
+                    ViewBag.Message = "battleship";
+                    ViewBag.Ship = model;
 
+
+                }
+                else if(model.letter == "c")
+                {
+                    ViewBag.Message = "cruiship";
+                    ViewBag.Ship = model;
+                }
+                else if (model.letter == "d")
+                {
+                    ViewBag.Message = "destroyer";
+                    ViewBag.Ship = model;
                 }
                 else
                 {
-                    ViewBag.Message = "Civilian";
-                    ViewBag.Aircraft = model;
+                    ViewBag.Message = "No info";
+                    ViewBag.Ship = model;
+
                 }
             }
 
