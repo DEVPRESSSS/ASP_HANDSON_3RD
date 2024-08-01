@@ -1,16 +1,35 @@
-﻿
-@model ASP_HANDS_ON_THIRDYEAR.Models.Convert
-    <form asp-action="Convert">
-        <label asp-for="Peso"></label>
-        <input asp-for="Peso" />
-        <span asp-validation-for="Peso"></span>
-
-        
+﻿@model Calculator
 
 
-        <button type="submit">Convert</button>
+    <form method="post">
+    
+
+        <label asp-for="fisrtNumber"></label>
+        <input asp-for="fisrtNumber" />
+        <span asp-validation-for="fisrtNumber"></span>
+
+
+        <label asp-for="SecondNumber"></label> 
+        <input asp-for="SecondNumber" />
+        <span asp-validation-for="SecondNumber"></span>
+
+        <button type="submit" formaction="/Home/Add" class="btn btn-primary">+</button>
+        <button type="submit" formaction="/Home/Minus" class="btn btn-primary">-</button>
+        <button type="submit" formaction="/Home/Multi" class="btn btn-primary">*</button>
+        <button type="submit" formaction="/Home/Division" class="btn btn-primary">/</button>
+  
+
+
+
+  
 
     </form>
 
-    <label asp-for="Convertion">Convertion to Dollar:</label>
-    <input asp-for="Convertion" readonly />
+
+@if (Model != null)
+{
+    
+
+    <input asp-for="Result" readonly />
+}
+

@@ -19,17 +19,51 @@ namespace ASP_HANDS_ON_3RDYEAR.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Convert(Convert model)
+        public IActionResult Add(Calculator model)
         {
+            if(ModelState.IsValid)
+            {
+                model.Result = model.fisrtNumber + model.SecondNumber;
+            }
 
+
+
+            return View("Index", model);
+
+        }
+        [HttpPost]
+        public IActionResult Minus(Calculator model)
+        {
             if (ModelState.IsValid)
             {
-
-                model.Dollar = 58.6;
-
-                model.Convertion = model.Peso * model.Dollar;
+                model.Result = model.fisrtNumber - model.SecondNumber;
             }
-           
+
+
+
+            return View("Index", model);
+
+        }
+        [HttpPost]
+        public IActionResult Multi(Calculator model)
+        {
+            if (ModelState.IsValid)
+            {
+                model.Result = model.fisrtNumber * model.SecondNumber;
+            }
+
+
+
+            return View("Index", model);
+
+        }
+        [HttpPost]
+        public IActionResult Division(Calculator model)
+        {
+            if (ModelState.IsValid)
+            {
+                model.Result = model.fisrtNumber / model.SecondNumber;
+            }
 
 
 
