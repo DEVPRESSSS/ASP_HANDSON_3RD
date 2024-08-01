@@ -1,35 +1,22 @@
-﻿@model Calculator
+﻿@model Aircraft
 
-
-    <form method="post">
-    
-
-        <label asp-for="fisrtNumber"></label>
-        <input asp-for="fisrtNumber" />
-        <span asp-validation-for="fisrtNumber"></span>
-
-
-        <label asp-for="SecondNumber"></label> 
-        <input asp-for="SecondNumber" />
-        <span asp-validation-for="SecondNumber"></span>
-
-        <button type="submit" formaction="/Home/Add" class="btn btn-primary">+</button>
-        <button type="submit" formaction="/Home/Minus" class="btn btn-primary">-</button>
-        <button type="submit" formaction="/Home/Multi" class="btn btn-primary">*</button>
-        <button type="submit" formaction="/Home/Division" class="btn btn-primary">/</button>
-  
-
-
-
-  
-
-    </form>
-
-
-@if (Model != null)
-{
-    
-
-    <input asp-for="Result" readonly />
+@{
+    ViewData["Title"] = "Home Page";
 }
+
+<form asp-action="Aircraft" id="aircraftForm">
+    <label asp-for="Number"></label>
+    <input asp-for="Number" id="inputField" />
+    <span asp-validation-for="Number"></span>
+</form>
+
+@if(ViewBag.Message != null)
+{
+    <div>
+        <label for="id">Type:</label>
+        <input value="@ViewBag.Message" id="#mess" />
+    </div>
+}
+
+
 

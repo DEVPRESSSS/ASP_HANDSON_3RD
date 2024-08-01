@@ -19,57 +19,34 @@ namespace ASP_HANDS_ON_3RDYEAR.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Add(Calculator model)
+        public IActionResult AirCraft(Aircraft model)
         {
             if(ModelState.IsValid)
             {
-                model.Result = model.fisrtNumber + model.SecondNumber;
+                if(model.Number < 500)
+                {
+                    ViewBag.Message = "Bird";
+                    ViewBag.Aircraft = model;
+                }
+                else if((model.Number >= 500) && (model.Number <= 1100))
+                {
+                    ViewBag.Message = "Military";
+                    ViewBag.Aircraft = model;
+
+                }
+                else
+                {
+                    ViewBag.Message = "Civilian";
+                    ViewBag.Aircraft = model;
+                }
             }
 
 
 
-            return View("Index", model);
+            return PartialView("Index", model);
 
         }
-        [HttpPost]
-        public IActionResult Minus(Calculator model)
-        {
-            if (ModelState.IsValid)
-            {
-                model.Result = model.fisrtNumber - model.SecondNumber;
-            }
-
-
-
-            return View("Index", model);
-
-        }
-        [HttpPost]
-        public IActionResult Multi(Calculator model)
-        {
-            if (ModelState.IsValid)
-            {
-                model.Result = model.fisrtNumber * model.SecondNumber;
-            }
-
-
-
-            return View("Index", model);
-
-        }
-        [HttpPost]
-        public IActionResult Division(Calculator model)
-        {
-            if (ModelState.IsValid)
-            {
-                model.Result = model.fisrtNumber / model.SecondNumber;
-            }
-
-
-
-            return View("Index", model);
-
-        }
+        
         public IActionResult Privacy()
         {
             return View();
