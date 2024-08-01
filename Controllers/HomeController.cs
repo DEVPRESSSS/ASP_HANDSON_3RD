@@ -1,6 +1,7 @@
 using ASP_HANDS_ON_3RDYEAR.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Convert = ASP_HANDS_ON_THIRDYEAR.Models.Convert;
 
 namespace ASP_HANDS_ON_3RDYEAR.Controllers
 {
@@ -17,7 +18,24 @@ namespace ASP_HANDS_ON_3RDYEAR.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Convert(Convert model)
+        {
 
+            if (ModelState.IsValid)
+            {
+
+                model.Dollar = 58.6;
+
+                model.Convertion = model.Peso * model.Dollar;
+            }
+           
+
+
+
+            return View("Index", model);
+
+        }
         public IActionResult Privacy()
         {
             return View();

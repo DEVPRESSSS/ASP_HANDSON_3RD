@@ -1,8 +1,16 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿
+@model ASP_HANDS_ON_THIRDYEAR.Models.Convert
+    <form asp-action="Convert">
+        <label asp-for="Peso"></label>
+        <input asp-for="Peso" />
+        <span asp-validation-for="Peso"></span>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+        
+
+
+        <button type="submit">Convert</button>
+
+    </form>
+
+    <label asp-for="Convertion">Convertion to Dollar:</label>
+    <input asp-for="Convertion" readonly />
