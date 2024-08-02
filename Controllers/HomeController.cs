@@ -16,7 +16,7 @@ namespace ASP_HANDS_ON_3RDYEAR.Controllers
 
         public IActionResult Index()
         {
-            ICollection<int> numbers = new List<int>() {1,2,3,4,5};
+            ICollection<int> numbers = new List<int>() {5, 4,3,2,1 };
             return View(numbers);
         }
         [HttpPost]
@@ -25,7 +25,7 @@ namespace ASP_HANDS_ON_3RDYEAR.Controllers
 
             if (model == null || !model.Any())
             {
-                model = new List<int>() { 1, 2, 3, 4, 5 };
+                model = new List<int>() { 5, 4, 3, 2, 1 };
             }
 
             var reversedNumbers = model.Reverse().ToList();
