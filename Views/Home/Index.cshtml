@@ -4,17 +4,15 @@
     ViewData["Title"] = "Home Page";
 }
 
-<h2>Number List</h2>
 
 <form id="reverseForm" asp-action="Loop" method="post">
     <button type="submit">Run</button>
     
    
-    <textarea rows="5" cols="20" readonly>
+    <textarea rows="10" cols="20" readonly>
         @foreach (var number in Model)
         {
-            @number 
-            <br />
+            @number
         }
     </textarea>
    

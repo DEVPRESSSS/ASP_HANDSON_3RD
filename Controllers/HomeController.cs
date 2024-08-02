@@ -16,7 +16,7 @@ namespace ASP_HANDS_ON_3RDYEAR.Controllers
 
         public IActionResult Index()
         {
-            ICollection<int> numbers = new List<int>() { 1, 2, 3, 4, 5 };
+            ICollection<int> numbers = new List<int>() { 1, 2, 3, 4, 5,6,7,8};
             return View(numbers);
         }
         [HttpPost]
@@ -25,12 +25,12 @@ namespace ASP_HANDS_ON_3RDYEAR.Controllers
 
             if (model == null || !model.Any())
             {
-                model = new int[] {1,2,3,4,5 };
+                model = new int[] { 1, 2, 3, 4, 5, 6, 7, 8 };
                
                 for(int i =0; i < model.Length; i++)
                 {
 
-                    model[i] = model[i] * model[i];
+                    model[i] = model[i] * 3;
 
                 }
             }
