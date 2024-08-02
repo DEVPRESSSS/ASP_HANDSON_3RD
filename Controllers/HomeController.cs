@@ -19,36 +19,37 @@ namespace ASP_HANDS_ON_3RDYEAR.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Letter(Ship model)
+        public IActionResult Earthquake(Earthquake model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                model.letter = model.letter.ToLower();
-               
-                if(model.letter == "b")
+                if (model.Magnitude < 4.9)
                 {
-                    ViewBag.Message = "battleship";
-                    ViewBag.Ship = model;
-
-
-                }
-                else if(model.letter == "c")
-                {
-                    ViewBag.Message = "cruiship";
+                    ViewBag.Message = "No damage";
                     ViewBag.Ship = model;
                 }
-                else if (model.letter == "d")
+                else if (model.Magnitude >= 4.9 && model.Magnitude <= 5.5)
                 {
-                    ViewBag.Message = "destroyer";
+                    ViewBag.Message = "Some damage";
+                    ViewBag.Ship = model;
+                }
+                else if (model.Magnitude > 5.5 && model.Magnitude <= 6.5)
+                {
+                    ViewBag.Message = "Serious Damage";
+                    ViewBag.Ship = model;
+                }
+                else if (model.Magnitude >= 6.5 && model.Magnitude <7.5)
+                {
+                    ViewBag.Message = "Disaster";
                     ViewBag.Ship = model;
                 }
                 else
                 {
-                    ViewBag.Message = "No info";
+                    ViewBag.Message = "Catastrophe";
                     ViewBag.Ship = model;
-
                 }
             }
+
 
 
 
