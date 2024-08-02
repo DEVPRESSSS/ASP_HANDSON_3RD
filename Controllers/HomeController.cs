@@ -32,13 +32,19 @@ namespace ASP_HANDS_ON_3RDYEAR.Controllers
 
                     model[i] = model[i] * 3;
 
+                    
+
+
+
+
                 }
             }
 
-            
-           
+            var reversedNumbers = model.Reverse().ToList();
 
-            return View("Index",model);
+
+
+            return View("Index", reversedNumbers);
         }
 
 
