@@ -16,20 +16,29 @@ namespace ASP_HANDS_ON_3RDYEAR.Controllers
 
         public IActionResult Index()
         {
-            ICollection<int> numbers = new List<int>() {5, 4,3,2,1 };
+            ICollection<int> numbers = new List<int>() { 1, 2, 3, 4, 5 };
             return View(numbers);
         }
         [HttpPost]
-        public IActionResult Loop(ICollection<int> model)
+        public IActionResult Loop(int [] model)
         {
 
             if (model == null || !model.Any())
             {
-                model = new List<int>() { 5, 4, 3, 2, 1 };
+                model = new int[] {1,2,3,4,5 };
+               
+                for(int i =0; i < model.Length; i++)
+                {
+
+                    model[i] = model[i] * model[i];
+
+                }
             }
 
-            var reversedNumbers = model.Reverse().ToList();
-            return View("Index", reversedNumbers);
+            
+           
+
+            return View("Index",model);
         }
 
 

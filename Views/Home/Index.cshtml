@@ -1,17 +1,23 @@
-﻿@model ICollection<int>
+﻿@model IEnumerable<int>
 
+@{
+    ViewData["Title"] = "Home Page";
+}
 
-<form asp-action="Loop" method="post">
+<h2>Number List</h2>
+
+<form id="reverseForm" asp-action="Loop" method="post">
     <button type="submit">Run</button>
-    <textarea>
-        @foreach(var items in Model)
+    
+   
+    <textarea rows="5" cols="20" readonly>
+        @foreach (var number in Model)
         {
-       
-                 @items
-       
+            @number 
+            <br />
         }
-     </textarea>
-
+    </textarea>
+   
 </form>
 
 
