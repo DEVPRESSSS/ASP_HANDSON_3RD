@@ -19,44 +19,62 @@ namespace ASP_HANDS_ON_3RDYEAR.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Earthquake(Earthquake model)
+        public IActionResult Grade(Grade model)
         {
             if (ModelState.IsValid)
             {
-                if (model.Magnitude < 4.9)
+                if (model.grade <= 74)
                 {
-                    ViewBag.Message = "No damage";
-                    ViewBag.Ship = model;
+                    ViewBag.Message = "Failed";
                 }
-                else if (model.Magnitude >= 4.9 && model.Magnitude <= 5.5)
+                else if (model.grade > 74 && model.grade <= 76)
                 {
-                    ViewBag.Message = "Some damage";
-                    ViewBag.Ship = model;
+                    ViewBag.Message = "3.00";
                 }
-                else if (model.Magnitude > 5.5 && model.Magnitude <= 6.5)
+                else if (model.grade > 76 && model.grade <= 77)
                 {
-                    ViewBag.Message = "Serious Damage";
-                    ViewBag.Ship = model;
+                    ViewBag.Message = "2.75";
                 }
-                else if (model.Magnitude >= 6.5 && model.Magnitude <7.5)
+                else if (model.grade > 77 && model.grade <= 81)
                 {
-                    ViewBag.Message = "Disaster";
-                    ViewBag.Ship = model;
+                    ViewBag.Message = "2.50";
+                }
+                else if (model.grade > 81 && model.grade <= 84)
+                {
+                    ViewBag.Message = "2.25";
+                }
+                else if (model.grade > 84 && model.grade <= 88)
+                {
+                    ViewBag.Message = "2.00";
+                }
+                else if (model.grade > 88 && model.grade <= 91)
+                {
+                    ViewBag.Message = "1.75";
+                }
+                else if (model.grade > 91 && model.grade <= 94)             {
+                    ViewBag.Message = "1.50";
+                }
+                else if (model.grade > 94 && model.grade <= 97)
+                {
+   
+                    ViewBag.Message = "1.25";
+                }
+                else if (model.grade > 97 && model.grade <= 100)
+                {
+                    ViewBag.Message = "1.00";
                 }
                 else
                 {
-                    ViewBag.Message = "Catastrophe";
-                    ViewBag.Ship = model;
+                    ViewBag.Message = "Invalid grade";
                 }
+
+                ViewBag.Grade = model;
             }
 
-
-
-
             return PartialView("Index", model);
-
         }
-        
+
+
         public IActionResult Privacy()
         {
             return View();

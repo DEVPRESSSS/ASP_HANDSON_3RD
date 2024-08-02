@@ -1,20 +1,20 @@
-﻿@model Earthquake
+﻿@model Grade
 
 @{
     ViewData["Title"] = "Home Page";
 }
 
-<form asp-action="Earthquake">
-    <label asp-for="Magnitude"></label>
-    <input asp-for="Magnitude" id="inputField" />
-    <span asp-validation-for="Magnitude"></span>
+<form asp-action="grade">
+    <label asp-for="grade"></label>
+    <input asp-for="grade" id="inputField" />
+    <span asp-validation-for="grade"></span>
 </form>
 
 @if(ViewBag.Message != null)
 {
     <div>
-        <label for="id">Effect:</label>
-        <input value="@ViewBag.Message" id="#mess" />
+        <label for="id">Equivalent:</label>
+        <input value="@ViewBag.Message" id="#mess" readonly />
     </div>
 }
 
