@@ -1,22 +1,22 @@
-﻿@model Grade
+﻿@model ICollection<int>
 
-@{
-    ViewData["Title"] = "Home Page";
-}
 
-<form asp-action="grade">
-    <label asp-for="grade"></label>
-    <input asp-for="grade" id="inputField" />
-    <span asp-validation-for="grade"></span>
+<form asp-action="Loop" method="post">
+    <button type="submit">Run</button>
+    <textarea>
+        @foreach(var items in Model)
+        {
+        
+
+      
+                 @items
+       
+        }
+     </textarea>
+
 </form>
 
-@if(ViewBag.Message != null)
-{
-    <div>
-        <label for="id">Equivalent:</label>
-        <input value="@ViewBag.Message" id="#mess" readonly />
-    </div>
-}
+
 
 
 
